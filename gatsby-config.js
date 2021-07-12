@@ -42,18 +42,33 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-omni-font-loader`,
+      options: {
+        enableListener: true,
+        preconnect: [`https://fonts.gstatic.com`],
+        interval: 300,
+        timeout: 30000,
+        web: [
+          {
+            name: `IBM Plex Sans`,
+            file: `https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap`,
+          },
+        ],
+      },
+    },
+    {
       resolve: "gatsby-source-filesystem",
       options: {
         name: "projects",
         path: `${__dirname}/content/projects`,
       },
     },
-    {
-      resolve: `gatsby-plugin-google-analytics`,
-      options: {
-        trackingId: process.env.GOOGLE_ANALYTICS_ID,
-      },
-    },
+    // {
+    //   resolve: `gatsby-plugin-google-analytics`,
+    //   options: {
+    //     trackingId: process.env.GOOGLE_ANALYTICS_ID,
+    //   },
+    // },
     `gatsby-plugin-sitemap`,
     {
       resolve: `gatsby-plugin-manifest`,
@@ -82,6 +97,7 @@ module.exports = {
     `gatsby-plugin-theme-ui`,
     `gatsby-plugin-offline`,
     `gatsby-plugin-netlify`,
+    `gatsby-plugin-image`,
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-react-helmet`,
